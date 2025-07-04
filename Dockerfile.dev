@@ -8,10 +8,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY astro.config.mjs ./
 
-# Instala Astro y dependencias incluyendo @astrojs/tailwind
+# Instala Astro y dependencias
 RUN npm install
-RUN npm install @astrojs/tailwind tailwindcss postcss autoprefixer --save-dev
-RUN npm install @astrojs/preact preact --save-dev
 
 # Copia el resto de los archivos
 COPY . .
@@ -20,4 +18,4 @@ COPY . .
 EXPOSE 4321
 
 # Comando para iniciar el servidor de desarrollo
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "dev"]
